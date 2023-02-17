@@ -9,6 +9,7 @@ var w = 0
 var pinksq;
 var leave = false
 var greysq;
+var justOpened = true
 var qs = [
     ['chemical 1','F'],
     ['chemical 2','T'],
@@ -39,6 +40,10 @@ var qs = [
 function preload() {
     pinksq = loadImage('assets/pink.png')
     greysq = loadImage('assets/grey.png')
+    bhome = loadImage('assets/home.png')
+    brestart = loadImage('assets/restart.png')
+    bplay = loadImage('assets/play.png')
+    bblank = loadImage('assets/blankrect.png')
 }
 
 function setup() {
@@ -51,7 +56,7 @@ function setup() {
   
 function gameOver() {
     text('Game Over',windowWidth/2,100)
-    text('Press Enter to continue',windowWidth/2,150)
+    image(brestart,windowWidth/2-50,windowHeight/2-100,100,100)
     if (enter == true) {
         started = false
         enter=false
@@ -61,7 +66,7 @@ function gameOver() {
 }
 function beatGame() {
     text('You have completed all the questions',windowWidth/2,100)
-    text('Press Enter to continue',windowWidth/2,150)
+    image(brestart,windowWidth/2-50,windowHeight/2-100,100,100)
     if (enter == true) {
         started = false
         enter=false
@@ -71,17 +76,26 @@ function beatGame() {
 }
 
 function welcome() {
-    text('Press enter to start',windowWidth/2,100)
-    text('Press Esc to view other games',windowWidth/2,150)
+    if (justOpened == true) {
+        text('Once started, a compound will appear on the screen.',windowWidth/2,100)
+        text('Use the on-screen buttons or press \'T\' if this is soluble, \'F\' if not.',windowWidth/2, 150)
+        text('Press enter to start or Esc to view other games.',windowWidth/2,200)
+    } else {
+        text('Press enter to start',windowWidth/2,100)
+        text('Press Esc to view other games',windowWidth/2,150)
+    }
     if (enter == true) {
         started = true
         enter=false
         qon=0
         timeLeft = 3540
+        justOpened==false
     }
     if (leave == true) {
         window.location.href = '/index.html'
     }
+    image(bplay,windowWidth/2-50,windowHeight/2-100,100,100)
+    image(bhome,windowWidth/2-50,windowHeight/2+50,100,100)
 }
 
 function boxes(correct, wrong) {
@@ -102,6 +116,13 @@ function boxes(correct, wrong) {
     }
 }
 
+function drawButtons() {
+    image(bblank,windowWidth/2-325,300,300,50)
+    image(bblank,windowWidth/2+25,300,300,50)
+    text('Soluble',windowWidth/2-175,340)
+    text('Insoluble',windowWidth/2+175,340)
+}
+
 function draw() {
     background(220);
     boxes(correct,wrong)
@@ -111,6 +132,7 @@ function draw() {
         if (qon>=nq) {
             beatGame()
         } else {
+            drawButtons()
             timeLeft--
             time=Math.ceil(timeLeft/60)
             text(time,windowWidth/2,100)
@@ -121,23 +143,31 @@ function draw() {
     }
 }
 
+function guesst() {
+    if (qs[qon][1] == 'T') {
+        correct++
+    } else{
+        wrong++
+    }
+    qon++
+}
+
+function guessf() {
+    if (qs[qon][1] == 'F') {
+        correct++
+    } else{
+        wrong++
+    }
+    qon++
+}
+
 function keyPressed() {
     if (qon !=nq && timeLeft !=0) {
         if (keyCode === 84) {
-            if (qs[qon][1] == 'T') {
-                correct++
-            } else{
-                wrong++
-            }
-            qon++
+            guesst()
         }
         if (keyCode === 70) {
-            if (qs[qon][1] == 'F') {
-                correct++
-            } else{
-                wrong++
-            }
-            qon++
+            guessf()
         }
     }
     if (keyCode === 13) {
@@ -145,5 +175,14 @@ function keyPressed() {
     }
     if (keyCode === 27) {
         leave = true
+    }
+}
+
+function mouseClicked() {
+    if (mouseX > windowWidth/2-50 && mouseY > windowHeight/2-100 && mouseX < windowWidth/2+50 && mouseY < windowHeight/2) {
+        enter=true
+    }
+    if (mouseX > windowWidth/2-50 && mouseY > windowHeight/2+50 && mouseX < windowWidth/2+50 && mouseY < windowHeight/2+150) {
+        leave=true
     }
 }
