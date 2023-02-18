@@ -61,7 +61,6 @@ function setup() {
     createCanvas(windowWidth,windowHeight);
     frameRate(60)
     textAlign(CENTER)
-    textSize(50)
 
 }
   
@@ -135,6 +134,7 @@ function drawButtons() {
 }
 
 function draw() {
+    textSize(windowWidth/40)
     background(220);
     boxes(correct,wrong)
     if (started == false) {
