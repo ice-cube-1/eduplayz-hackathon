@@ -51,6 +51,7 @@ function start() {
     text('Welcome to OxiQuest',windowWidth/2,100)
     textSize(windowWidth/50)
     text('Answer the questions behind each door to earn points',windowWidth/2,150)
+    text('When you have answered all the questions correctly, the door will be highlighted',windowWidth/2,200)
     image(bplay,windowWidth/2-50,windowHeight/2-100,100,100)
     image(bhome,windowWidth/2-50,windowHeight/2+50,100,100)
     if (enter == true) {
