@@ -2,7 +2,7 @@ var timeLeft = 0
 var qon = 0
 var correct = 0
 var wrong = 0
-var nq = 24
+var nq = 35
 var started = false
 var enter = false
 var w = 0
@@ -11,30 +11,41 @@ var leave = false
 var greysq;
 var justOpened = true
 var qs = [
-    ['chemical 1','F'],
-    ['chemical 2','T'],
-    ['chemical 3','F'],
-    ['chemical 4','T'],
-    ['chemical 1','F'],
-    ['chemical 2','T'],
-    ['chemical 3','F'],
-    ['chemical 4','T'],
-    ['chemical 1','F'],
-    ['chemical 2','T'],
-    ['chemical 3','F'],
-    ['chemical 4','T'],
-    ['chemical 1','F'],
-    ['chemical 2','T'],
-    ['chemical 3','F'],
-    ['chemical 4','T'],
-    ['chemical 1','F'],
-    ['chemical 2','T'],
-    ['chemical 3','F'],
-    ['chemical 4','T'],
-    ['chemical 1','F'],
-    ['chemical 2','T'],
-    ['chemical 3','F'],
-    ['chemical 4','T']
+    ['NH4NO3', 'T'], 
+    ['BaSO4', 'F'], 
+    ['Al(OH)3', 'F'], 
+    ['(NH4)2SO4', 'T'], 
+    ['Na2SO4', 'T'], 
+    ['CsOH', 'T'], 
+    ['CaCrO4', 'F'], 
+    ['CaF2', 'F'], 
+    ['NaNO3', 'T'], 
+    ['Sr3(PO4)2', 'F'], 
+    ['LiOH', 'T'], 
+    ['Li2CO3', 'T'], 
+    ['MgCO3', 'F'], 
+    ['SrSO4', 'F'], 
+    ['Ag(NO3)3', 'T'], 
+    ['Cs2CO3', 'T'], 
+    ['CaSo4', 'F'], 
+    ['PbSO4', 'F'], 
+    ['RbNO3', 'T'], 
+    ['HgBr2', 'F'], 
+    ['CH3CO2Ag', 'T'], 
+    ['AgCl', 'F'], 
+    ['KOH', 'T'], 
+    ['PbBr', 'F'], 
+    ['Ag2S', 'F'], 
+    ['BaCrO4', 'F'], 
+    ['Mg3(PO4)2', 'F'], 
+    ['Mg(NO3)2', 'T'], 
+    ['KOH', 'F'], 
+    ['SrCO3', 'F'], 
+    ['Ag2SO4', 'F'], 
+    ['Rb2SO4', 'T'], 
+    ['K2CO3', 'T'], 
+    ['BaF', 'F'], 
+    ['AgNO3', 'T']
 ]
 
 function preload() {
@@ -89,7 +100,7 @@ function welcome() {
         enter=false
         qon=0
         timeLeft = 3540
-        justOpened==false
+        justOpened=false
     }
     if (leave == true) {
         window.location.href = '/index.html'
