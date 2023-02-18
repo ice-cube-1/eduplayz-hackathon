@@ -185,4 +185,12 @@ function mouseClicked() {
     if (mouseX > windowWidth/2-50 && mouseY > windowHeight/2+50 && mouseX < windowWidth/2+50 && mouseY < windowHeight/2+150) {
         leave=true
     }
+    if (qon !=nq && timeLeft !=0) {
+        if (mouseX > windowWidth/2-325 && mouseY > 300 && mouseX < windowWidth/2-25 && mouseY < 350) {
+            guesst()
+        }
+        if (mouseX > windowWidth/2+25 && mouseY > 300 && mouseX < windowWidth/2+325 && mouseY < 350) {
+            guessf()
+        }
+    }
 }
