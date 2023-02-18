@@ -88,9 +88,12 @@ function beatGame() {
 
 function welcome() {
     if (justOpened == true) {
-        text('Once started, a compound will appear on the screen.',windowWidth/2,100)
-        text('Use the on-screen buttons or press \'T\' if this is soluble, \'F\' if not.',windowWidth/2, 150)
-        text('Press enter to start or Esc to view other games.',windowWidth/2,200)
+        textSize(windowWidth/40)
+        text('Welcome to Soluble Solutions',windowWidth/2,100)
+        textSize(windowWidth/50)
+        text('Once started, a compound will appear on the screen.',windowWidth/2,150)
+        text('Use the on-screen buttons or press \'T\' if this is soluble, \'F\' if not.',windowWidth/2, 200)
+        text('Press enter to start or Esc to view other games.',windowWidth/2,250)
     } else {
         text('Press enter to start',windowWidth/2,100)
         text('Press Esc to view other games',windowWidth/2,150)
@@ -135,7 +138,7 @@ function drawButtons() {
 }
 
 function draw() {
-    textSize(windowWidth/40)
+    textSize(windowWidth/50)
     background(220);
     image(logo,windowWidth-250,10,200,200/3845*1306)
     boxes(correct,wrong)

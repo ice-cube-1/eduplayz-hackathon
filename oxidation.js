@@ -43,10 +43,14 @@ function setup() {
     bback = loadImage('assets/back.png')
     bblank = loadImage('assets/blankrect.png')
     logo = loadImage('assets/logolarge.png')
+    key = loadImage('assets/key.png')
   }
 
 function start() {
-    text('Answer the questions behind each door to earn points',windowWidth/2,100)
+    textSize(windowWidth/40)
+    text('Welcome to OxiQuest',windowWidth/2,100)
+    textSize(windowWidth/50)
+    text('Answer the questions behind each door to earn points',windowWidth/2,150)
     image(bplay,windowWidth/2-50,windowHeight/2-100,100,100)
     image(bhome,windowWidth/2-50,windowHeight/2+50,100,100)
     if (enter == true) {
@@ -82,13 +86,19 @@ function doors() {
     } else {
         image(greydoorimg,300+width*2,50,width,height)
     }
-    image(bhome,windowWidth/2-50,windowHeight-125,100,100)
     text('Cl',100+width*0.5,windowHeight/2)
     text(clhs,100+width*0.5,windowHeight/2+50)
     text('P',200+width*1.5,windowHeight/2)
     text(phs,200+width*1.5,windowHeight/2+50)
     text('Cr',300+width*2.5,windowHeight/2)
     text(crhs,300+width*2.5,windowHeight/2+50)
+    if (clhs == 120 && phs == 120 && crhs == 120) {
+        background(220,220,220,200)
+        textSize(50)
+        text('You have completed the game. Well done!',windowWidth/2,windowHeight/2)
+        image(key,windowWidth/2-100,100,200,200/2990*2882)
+    }
+    image(bhome,windowWidth/2-50,windowHeight-125,100,100)
 }
 
 function cl() {
@@ -233,7 +243,7 @@ function crq() {
 }
   
 function draw() {
-    textSize(windowWidth/40)
+    textSize(windowWidth/50)
     background(220);
     image(logo,windowWidth-250,10,200,200/3845*1306)
     if (scene == 'start') {
