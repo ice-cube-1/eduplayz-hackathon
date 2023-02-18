@@ -55,6 +55,7 @@ function preload() {
     brestart = loadImage('assets/restart.png')
     bplay = loadImage('assets/play.png')
     bblank = loadImage('assets/blankrect.png')
+    logo = loadImage('assets/logolarge.png')
 }
 
 function setup() {
@@ -136,6 +137,7 @@ function drawButtons() {
 function draw() {
     textSize(windowWidth/40)
     background(220);
+    image(logo,windowWidth-250,10,200,200/3845*1306)
     boxes(correct,wrong)
     if (started == false) {
         welcome()

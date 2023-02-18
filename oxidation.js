@@ -42,6 +42,7 @@ function setup() {
     greydoorimg = loadImage('assets/greydoor.png')
     bback = loadImage('assets/back.png')
     bblank = loadImage('assets/blankrect.png')
+    logo = loadImage('assets/logolarge.png')
   }
 
 function start() {
@@ -234,6 +235,7 @@ function crq() {
 function draw() {
     textSize(windowWidth/40)
     background(220);
+    image(logo,windowWidth-250,10,200,200/3845*1306)
     if (scene == 'start') {
         start()
     } else if (scene == 'doors') {
